@@ -26,7 +26,6 @@ router.post('/login', async function (req, res,next){
     if (user) {
       return bcrypt.compare(req.body.password, user.password).then(result => {
         if (result === true) {
-          console.log(user.username)
           const token = jwt.sign({ id: user._id }, privateKey, { algorithm: 'RS256' });
           return res.status(200).json({"username" : user.username,"access_token": token});
         } else {
@@ -48,12 +47,12 @@ router.post('/register', async function(req, res, next) {
   if (req.body.username && req.body.password && req.body.passwordConfirmation) {
     if(req.body.password === req.body.passwordConfirmation) {
       const user = new User({
+        "_id": req.payload,
         "username": req.body.username,
         "password": req.hashedPassword
       })
           
       return await user.save().then( savedUser => {
-        console.log()
         return res.status(201).json({
           "id": savedUser._id,
           "username": savedUser.username
