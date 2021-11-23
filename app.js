@@ -7,7 +7,6 @@ require('dotenv').config();
 require('./models/setupMongo')();
 
 
-
 var todoRouter = require('./routes/todo');
 var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
