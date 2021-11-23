@@ -69,7 +69,7 @@ router.delete('/:id', async function(req, res, next) {
 
 router.patch('/:id', async function(req, res, next) {
     const todo = await Todo.findOne().where('_id').equals(req.params.id).exec()
-    todo.completed = !req.body.completed;
+    todo.completed = req.body.completed;
     todo.completed_date = req.body.completed_date
     await todo.save().then( savedTodo =>{
         return res.status(200).json(savedTodo)
