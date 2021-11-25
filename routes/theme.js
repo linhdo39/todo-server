@@ -4,10 +4,12 @@ const jwt = require('jsonwebtoken');
 
 
 router.get('/', async function(req, res, next) {
-    return res.status(200).json([{"name":"Default", "primaryColor": "#CC5500", "secondaryColor": "#E97451"},
-        {"name":"Ocean Blue", "primaryColor": "#2952a3", "secondaryColor": "#66c2ff"},
-        {"name":"Lavender Purple", "primaryColor": "#967bb6", "secondaryColor": "#ffb3b3"},
-        {"name":"Midnight Gray ", "primaryColor": "#36454F", "secondaryColor": "#7393B3"}]
+    return res.status(200).json([
+        {"name":"Default", "primaryColor": "#000000", "secondaryColor": "#FFFFFF"},
+        {"name":"Theme 1", "primaryColor": "#13258f", "secondaryColor": "#abf1ff"},
+        {"name":"Theme 2", "primaryColor": "#4d1549", "secondaryColor": "#fce1fb"},
+        {"name":"Theme 3 ", "primaryColor": "#36454F", "secondaryColor": "#c9c9c9"},
+        {"name":"Theme 4", "primaryColor": "#294c91", "secondaryColor": "#e0ffe8"}]
         )
 });
 
