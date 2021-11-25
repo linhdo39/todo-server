@@ -47,7 +47,6 @@ router.post('/register', async function(req, res, next) {
   if (req.body.username && req.body.password && req.body.passwordConfirmation) {
     if(req.body.password === req.body.passwordConfirmation) {
       const user = new User({
-        "_id": req.payload,
         "username": req.body.username,
         "password": req.hashedPassword
       })
